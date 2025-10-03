@@ -11,18 +11,6 @@ body
     font-family: 'Fira Sans', sans-serif;
 }
 
-p{
-  position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background: white;
-    min-height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .search
 {
     position: fixed;
@@ -140,3 +128,4 @@ footer {
   color: #777;
   border-top: 1px solid #333;
 }
+
