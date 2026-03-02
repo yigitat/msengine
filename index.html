@@ -1,35 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-<link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+<html lang="tr">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet" />
-    <title>Movie Search Engine</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS Engine - Filmler ve Diziler</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.png">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
-    <section class="search">
-        <input type="text" id="input" placeholder="Search A Movie" />
-        <input type="button" id="button" value="Search" />
-        <br>
-        <p> - 2025 <a href="https://yigitat.github.io/me/" target="_blank">Yiğit Alp</a> • All rights reserved</p>
-    </section>
-    <section class="display"></section>
-    <input type="text" class="next" readonly="true" value="Next" />
-    <input type="text" class="prev" readonly="true" value="Prev" />
-    <script src="./app.js"></script> 
-    
+    <nav class="navbar glass">
+        <div class="nav-content">
+            <a href="https://yigitat.github.io/msengine/" class="logo">Movie Search<span>Engine</span></a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="search-section">
+            <h1 class="page-title">Milyonlarca film ve dizi. <span class="highlight">Keşfetmeye başla.</span></h1>
+
+            <form id="searchForm" class="search-form">
+                <div class="search-wrapper">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Film, dizi ismi aratın..." autocomplete="off"
+                        required>
+                    <select id="typeSelect" class="type-select">
+                        <option value="">Tümü</option>
+                        <option value="movie">Film</option>
+                        <option value="series">Dizi</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Ara</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Loading State -->
+        <div id="loader" class="loader-container hidden">
+            <div class="spinner"></div>
+            <p>Oluşturuluyor...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <section class="results-section">
+            <div id="resultsGrid" class="movies-grid">
+                <!-- Javascript will populate this -> grid cards -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Detailed View -->
+    <div id="movieModal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-card">
+            <button id="closeModal" class="close-btn"><i data-lucide="x"></i></button>
+            <div id="modalBody" class="modal-body">
+                <!-- Javascript will populate this -> detailed layout -->
+                <div class="loader-container">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2025 Movie Search Engine. Tüm hakları saklıdır.</p>
+            <div class="footer-links">
+                Geliştiren: <a href="https://yigitat.github.io/me/" target="_blank" class="highlight">Yiğit Alp</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
